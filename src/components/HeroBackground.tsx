@@ -1,11 +1,19 @@
-import heroBackgroundMobile1 from '../assets/images/mobile-image-hero-1.jpg';
+import { useEffect, useState } from 'react';
 
-export default function HeroBackground() {
+type AppProps = {
+    selectedBackground: number;
+};
+
+export default function HeroBackground({ selectedBackground }: AppProps) {
+    const [isDesktop, setIsDesktop] = useState(window.matchMedia('(min-width: 1200px)').matches);
+
+    useEffect(() => {
+        window.matchMedia('(min-width: 768px)').addEventListener('change', e => setIsDesktop(e.matches));
+    }, []);
+
     const bgStyle = {
-        background: `url(${heroBackgroundMobile1})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'bottom center',
+        backgroundImage: `url(/assets/images/${isDesktop ? 'desktop' : 'mobile'}-image-hero-${selectedBackground}.jpg)`,
     };
 
-    return <div className="absolute top-0 left-0 right-0 bottom-0" style={bgStyle}></div>;
+    return <div className={`absolute top-0 left-0 right-0 bottom-0 bg-center bg-cover bg-no-repeat}`} style={bgStyle}></div>;
 }

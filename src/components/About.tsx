@@ -3,7 +3,7 @@ import image2 from '../assets/images/image-about-light.jpg';
 
 export default function About() {
     return (
-        <footer className="grid max-w-[840px] lg:max-h-[266px] md:grid-cols-footerMd lg:grid-cols-footer lg:max-w-[1440px] md:mx-auto">
+        <footer className="grid max-w-[600px] lg:max-h-[266px] lg:grid-cols-footer lg:max-w-[1440px] md:mx-auto">
             <div>
                 <img className="w-full h-full object-cover" src={image1} alt="Dark image of chairs" />
             </div>
@@ -15,7 +15,7 @@ export default function About() {
                     space.
                 </p>
             </div>
-            <div className="md:hidden lg:block">
+            <div>
                 <img className="w-full h-full object-cover" src={image2} alt="Grayscale image of chair" />
             </div>
         </footer>

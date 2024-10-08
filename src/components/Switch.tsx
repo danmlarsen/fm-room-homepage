@@ -1,10 +1,14 @@
 import SwitchButton from './SwitchButton';
 
-export default function Switch() {
+type AppProps = {
+    onSwitch: (direction: string) => void;
+};
+
+export default function Switch({ onSwitch }: AppProps) {
     return (
         <div className="flex bg-black">
-            <SwitchButton angle="Left" />
-            <SwitchButton angle="Right" />
+            <SwitchButton angle="Left" onClick={() => onSwitch('left')} />
+            <SwitchButton angle="Right" onClick={() => onSwitch('right')} />
         </div>
     );
 }

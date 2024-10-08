@@ -20,9 +20,16 @@ export default {
             },
             gridTemplateColumns: {
                 hero: 'minmax(500px, 840px) 600px',
-                heroMd: '1fr',
                 footer: '420px 1fr 440px',
-                footerMd: '420px 1fr',
+            },
+            keyframes: {
+                fadeOut: {
+                    '0%': { opacity: '1' },
+                    '100%': { opacity: '0' },
+                },
+            },
+            animation: {
+                'fade-out': 'fadeOut 3s linear',
             },
         },
     },
