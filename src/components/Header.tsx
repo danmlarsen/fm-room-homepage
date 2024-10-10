@@ -2,14 +2,15 @@ import Logo from './Logo';
 import MobileNavBtn from './MobileNavBtn';
 import Navigation from './Navigation';
 
+import MobileNav from './MobileNav';
+
 export default function Header() {
     return (
         <header className="flex justify-center items-center relative lg:justify-start gap-14">
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 lg:hidden">
-                <MobileNavBtn />
-            </div>
+            <MobileNavBtn />
+            <MobileNav />
             <Logo />
-            <div className="hidden lg:block">
+            <div className="text-white hidden md:block">
                 <Navigation />
             </div>
         </header>

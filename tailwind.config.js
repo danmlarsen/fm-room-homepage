@@ -5,12 +5,13 @@ export default {
     content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
     theme: {
         screens: {
-            md: '768px',
-            lg: '1200px',
+            md: '600px',
+            lg: '1300px',
         },
         extend: {
             colors: {
                 gray: {
+                    100: '#FAFAFA',
                     600: 'hsl(0, 0%, 63%)',
                     800: 'hsl(0, 0%, 27%)',
                 },

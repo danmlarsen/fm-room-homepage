@@ -3,7 +3,8 @@ import Header from './Header';
 import HeroBackground from './HeroBackground';
 import { useState } from 'react';
 import HeroContent from './HeroContent';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
+
+import { AnimatePresence } from 'framer-motion';
 
 const data = [
     {
@@ -42,25 +43,20 @@ export default function Hero() {
     }
 
     return (
-        <div className="grid max-w-[600px] lg:grid-cols-hero lg:min-h-[534px] lg:max-w-[1440px] md:mx-auto">
-            <div className="h-[360px] px-6 py-12 relative lg:h-full bg-black">
-                <SwitchTransition>
-                    <CSSTransition key={selectedContent} classNames="fade" addEndListener={(node, done) => node.addEventListener('transitionend', done, false)}>
-                        <HeroBackground selectedBackground={selectedContent + 1} />
-                    </CSSTransition>
-                </SwitchTransition>
-
+        <div className="grid mx-auto max-w-[600px] lg:grid-cols-hero lg:min-h-[534px] lg:max-w-[1440px] bg-white">
+            <div className="min-h-[360px] px-6 py-12 relative lg:h-full bg-white lg:px-16 lg:pt-16 z-10">
+                <AnimatePresence initial={false}>
+                    <HeroBackground key={selectedContent} selectedBackground={selectedContent} />
+                </AnimatePresence>
                 <Header />
                 <div className="absolute right-0 bottom-0 lg:translate-x-full">
                     <Switch onSwitch={handleSlider} />
                 </div>
             </div>
-            <div className="flex flex-col justify-center mx-8 my-16 min-h-[410px] overflow-hidden">
-                <div className="flex transition duration-300" style={{ transform: `translate(${selectedContent * -100}%, 0)` }}>
-                    {data.map(item => (
-                        <HeroContent key={item.title} data={item} />
-                    ))}
-                </div>
+            <div className="flex justify-center mx-8 my-16 lg:mt-[120px] overflow-x-hidden">
+                <AnimatePresence initial={false}>
+                    <HeroContent key={selectedContent} data={data[selectedContent]} />
+                </AnimatePresence>
             </div>
         </div>
     );
