@@ -2,11 +2,16 @@ import { useEffect, useState } from 'react';
 
 import { motion } from 'framer-motion';
 
+import { images } from './HeroBackgroundImages';
+
 type AppProps = {
     selectedBackground: number;
 };
 
 const DESKTOP_BREAKPOINT = '768px';
+
+const getImagePath = (selectedBackground: number, isDesktop: boolean): string =>
+    isDesktop ? images.desktop[selectedBackground] : images.mobile[selectedBackground];
 
 export default function HeroBackground({ selectedBackground }: AppProps) {
     const [isDesktop, setIsDesktop] = useState(window.matchMedia(`(min-width: ${DESKTOP_BREAKPOINT})`).matches);
@@ -16,7 +21,7 @@ export default function HeroBackground({ selectedBackground }: AppProps) {
     }, []);
 
     const bgStyle = {
-        backgroundImage: `url(/assets/images/${isDesktop ? 'desktop' : 'mobile'}-image-hero-${selectedBackground + 1}.jpg)`,
+        backgroundImage: `url('${getImagePath(selectedBackground, isDesktop)}')`,
     };
 
     return (
