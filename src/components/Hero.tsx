@@ -1,4 +1,4 @@
-import Switch from './Switch';
+import Slider from './Slider';
 import Header from './Header';
 import HeroBackground from './HeroBackground';
 import { useState } from 'react';
@@ -43,21 +43,21 @@ export default function Hero() {
     }
 
     return (
-        <div className="grid mx-auto max-w-md md:max-w-3xl lg:grid-cols-hero lg:min-h-[534px] lg:max-w-[1440px] bg-white">
-            <div className="min-h-[360px] md:min-h-[534px] px-6 py-12 lg:pl-[64px] lg:pt-[63px] relative lg:h-full">
+        <div className="grid mx-auto max-w-md md:max-w-3xl lg:grid-cols-hero lg:min-h-[33.375rem] lg:max-w-8xl bg-white">
+            <div className="min-h-[22.5rem] md:min-h-[33.375rem] px-6 py-12 lg:pl-16 lg:pt-16 relative lg:h-full">
                 <AnimatePresence initial={false}>
                     <HeroBackground key={selectedContent} selectedBackground={selectedContent} />
                 </AnimatePresence>
                 <Header />
                 <div className="absolute right-0 bottom-0 lg:translate-x-full">
-                    <Switch onSwitch={handleSlider} />
+                    <Slider onClick={handleSlider} />
                 </div>
             </div>
-            <div className="flex justify-center mx-8 my-16 lg:mt-[120px] overflow-hidden relative">
+            <main className="flex justify-center mx-8 my-16 lg:mt-[7.5rem] overflow-hidden relative">
                 <AnimatePresence initial={false}>
                     <HeroContent key={selectedContent} data={data[selectedContent]} />
                 </AnimatePresence>
-            </div>
+            </main>
         </div>
     );
 }

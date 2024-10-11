@@ -10,7 +10,7 @@ export default function MobileNavBtn() {
 
     return (
         <div className={`flex items-center justify-center md:hidden z-50 ${navOpen ? 'fixed top-[45px] left-6' : 'absolute left-0 top-1/2 -translate-y-1/2'}`}>
-            <button onClick={() => setNavOpen(prev => !prev)}>
+            <button onClick={() => setNavOpen(prev => !prev)} aria-label={navOpen ? 'Close navigation' : 'Open navigation'}>
                 <AnimatePresence initial={false} mode="wait">
                     {navOpen ? (
                         <motion.img
@@ -18,7 +18,7 @@ export default function MobileNavBtn() {
                             initial={{ opacity: 0, scale: 0.1 }}
                             animate={{ opacity: 1, scale: [1, 1.5, 1], rotate: [0, 270] }}
                             src={IconClose}
-                            alt="Close icon"
+                            alt="Cross icon"
                         />
                     ) : (
                         <motion.img

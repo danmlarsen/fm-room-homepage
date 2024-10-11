@@ -21,8 +21,11 @@ export default {
                 sans: ['League Spartan', ...defaultTheme.fontFamily.sans],
             },
             gridTemplateColumns: {
-                hero: 'minmax(500px, 840px) 600px',
-                footer: '420px 1fr 440px',
+                hero: 'minmax(31.25rem, 52.5rem) 37.5rem',
+                footer: '26.25rem 1fr 27.5rem',
+            },
+            maxWidth: {
+                '8xl': '90rem',
             },
         },
     },
