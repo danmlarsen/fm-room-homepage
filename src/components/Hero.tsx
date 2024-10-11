@@ -43,8 +43,8 @@ export default function Hero() {
     }
 
     return (
-        <div className="grid mx-auto max-w-[600px] lg:grid-cols-hero lg:min-h-[534px] lg:max-w-[1440px] bg-white">
-            <div className="min-h-[360px] px-6 py-12 relative lg:h-full bg-white lg:px-16 lg:pt-16 z-10">
+        <div className="grid mx-auto max-w-md md:max-w-3xl lg:grid-cols-hero lg:min-h-[534px] lg:max-w-[1440px] bg-white">
+            <div className="min-h-[360px] md:min-h-[534px] px-6 py-12 lg:pl-[64px] lg:pt-[63px] relative lg:h-full">
                 <AnimatePresence initial={false}>
                     <HeroBackground key={selectedContent} selectedBackground={selectedContent} />
                 </AnimatePresence>
@@ -53,7 +53,7 @@ export default function Hero() {
                     <Switch onSwitch={handleSlider} />
                 </div>
             </div>
-            <div className="flex justify-center mx-8 my-16 lg:mt-[120px] overflow-x-hidden">
+            <div className="flex justify-center mx-8 my-16 lg:mt-[120px] overflow-hidden relative">
                 <AnimatePresence initial={false}>
                     <HeroContent key={selectedContent} data={data[selectedContent]} />
                 </AnimatePresence>

@@ -9,7 +9,7 @@ export default function MobileNavBtn() {
     const { navOpen, setNavOpen } = useContext(NavContext) as NavContextType;
 
     return (
-        <div className="flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 md:hidden z-50">
+        <div className={`flex items-center justify-center md:hidden z-50 ${navOpen ? 'fixed top-[45px] left-6' : 'absolute left-0 top-1/2 -translate-y-1/2'}`}>
             <button onClick={() => setNavOpen(prev => !prev)}>
                 <AnimatePresence initial={false} mode="wait">
                     {navOpen ? (

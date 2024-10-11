@@ -6,7 +6,7 @@ import MobileNav from './MobileNav';
 
 export default function Header() {
     return (
-        <header className="flex justify-center items-center relative lg:justify-start gap-14">
+        <header className="flex justify-center items-center relative md:justify-start gap-14">
             <MobileNavBtn />
             <MobileNav />
             <Logo />
